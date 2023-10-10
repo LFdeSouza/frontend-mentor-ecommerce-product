@@ -11,7 +11,6 @@ const GalleryViewer: React.FC<IProps> = ({ images, isOpen, toggleViewer }) => {
   const [selectedItem, setSelectedItem] = useState(0);
 
   const changeImage = (op: string) => {
-    console.log(images.thumbnail.length);
     if (op === "prev") {
       if (selectedItem === 0)
         return setSelectedItem(images.thumbnail.length - 1);
@@ -26,7 +25,7 @@ const GalleryViewer: React.FC<IProps> = ({ images, isOpen, toggleViewer }) => {
     isOpen && (
       <div
         onClick={toggleViewer}
-        className="absolute inset-0 flex items-start justify-center bg-overlayBlack pt-14"
+        className="absolute inset-0 z-40 flex items-start justify-center bg-overlayBlack pt-14"
       >
         <div
           className="flex w-[30vw] flex-col items-center"
