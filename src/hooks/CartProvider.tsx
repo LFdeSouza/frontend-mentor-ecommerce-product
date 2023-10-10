@@ -35,7 +35,6 @@ const CartProvider: React.FC<Props> = ({ children }) => {
 
   const addToCart = useCallback(
     (id: number) => {
-      console.log(cart);
       const idx = cart.findIndex((i) => i.id === id);
       if (idx === -1) {
         setCart([...cart, { id, quantity: 1 }]);
@@ -44,9 +43,7 @@ const CartProvider: React.FC<Props> = ({ children }) => {
       }
       setCart((prev) => {
         setIsOpen(true);
-        return [
-          ...prev.splice(idx, 1, { id, quantity: prev[idx].quantity + 1 }),
-        ];
+        return [...prev.splice(idx, 1, { id, quantity: ++prev[idx].quantity })];
       });
     },
     [cart],
