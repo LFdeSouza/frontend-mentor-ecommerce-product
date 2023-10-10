@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .highlight::after {
+        @apply content-[''] h-1 w-full top-[3.8rem] left-0 text-mainOrange bg-mainOrange absolute
+    }
+}
