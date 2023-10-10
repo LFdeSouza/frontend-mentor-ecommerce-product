@@ -35,15 +35,13 @@ const CartProvider: React.FC<Props> = ({ children }) => {
 
   const addToCart = useCallback(
     (id: number) => {
-      console.log(id);
+      console.log(cart);
       const idx = cart.findIndex((i) => i.id === id);
       if (idx === -1) {
-        console.log("idx -1");
         setCart([...cart, { id, quantity: 1 }]);
         setIsOpen(true);
         return;
       }
-      console.log("already in cart");
       setCart((prev) => {
         setIsOpen(true);
         return [
